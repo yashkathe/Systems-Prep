@@ -1,0 +1,11 @@
+PARAMETER,VALUE,DESCRIPTION,CATEGORY,DEFAULT_VALUE,MIN_VALUE,MAX_VALUE,UNIT,REQUIRED,DEPENDS_ON
+max_connections,100,Maximum concurrent connections,Network,100,50,500,connections,Yes,None
+timeout,30,Request timeout in seconds,API,30,5,120,seconds,Yes,None
+cache_size,256,Size of in-memory cache,System,512,128,2048,MB,No,None
+log_level,INFO,Logging verbosity level,Logging,INFO,DEBUG,ERROR,N/A,Yes,None
+retry_attempts,3,Number of retry attempts,API,3,0,10,attempts,No,None
+db_pool_size,10,Database connection pool size,Database,10,5,50,connections,Yes,None
+thread_count,4,Number of worker threads,System,4,2,16,threads,No,CPU_CORES
+security_mode,ON,Enable or disable security,Security,ON,OFF,ON,N/A,Yes,None
+api_version,1.2,API version number,API,1.2,1.0,2.0,N/A,Yes,None
+feature_flag_X,DISABLED,Toggle for feature X,FeatureFlags,DISABLED,DISABLED,ENABLED,N/A,No,None

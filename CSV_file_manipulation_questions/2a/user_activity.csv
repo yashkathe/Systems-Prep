@@ -1,0 +1,9 @@
+USER_ID,LOGIN_TIMESTAMP,ACTIVITY_TYPE,DURATION_MIN,DEVICE_TYPE,BROWSER,APP_VERSION,LOCATION,OS,NETWORK_TYPE
+12345,2025-02-05 09:00:00,Reading,30,Desktop,Chrome,1.2.5,New York,Windows,WiFi
+12346,2025-02-05 09:05:00,Writing,45,Mobile,Firefox,1.3.0,London,Android,4G
+12347,2025-02-05 09:10:00,Reading,25,Tablet,Safari,1.1.8,Toronto,iOS,WiFi
+12348,2025-02-05 09:15:00,Browsing,60,Desktop,Edge,1.2.2,Berlin,Windows,Ethernet
+12349,2025-02-05 09:20:00,Video Streaming,90,Mobile,Chrome,1.3.1,Mumbai,Android,5G
+12350,2025-02-05 09:25:00,Shopping,50,Tablet,Chrome,1.2.7,San Francisco,iOS,WiFi
+12351,2025-02-05 09:30:00,Gaming,120,Desktop,Firefox,1.4.0,Paris,MacOS,Ethernet
+12352,2025-02-05 09:35:00,Social Media,40,Mobile,Safari,1.2.9,Tokyo,iOS,4G

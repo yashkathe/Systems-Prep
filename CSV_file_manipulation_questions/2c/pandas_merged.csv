@@ -1,0 +1,8 @@
+,NAME,LEG_LENGTH,DIET,STRIDE_LENGTH,STANCE
+0,Tyrannosaurus,3.5,carnivore,4.5,bipedal
+1,Velociraptor,2.8,carnivore,3.8,bipedal
+2,Struthiomimus,2.1,omnivore,3.0,bipedal
+3,Triceratops,2.0,herbivore,2.5,quadrupedal
+4,Euoplocephalus,1.7,herbivore,2.0,quadrupedal
+5,Stegosaurus,2.5,herbivore,2.8,quadrupedal
+6,Allosaurus,3.2,carnivore,3.9,bipedal
