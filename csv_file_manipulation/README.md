@@ -13,9 +13,9 @@ TIMESTAMP, USER_ID, ACTION, RESOURCE, RESPONSE_TIME_MS 2025-02-05 09:00:00,
 
 Task: Write a program to read server_logs.csv and perform the following:
 
-    Calculate the average response time for each unique ACTION.
-    Identify the USER_ID with the highest number of POST actions.
-    Determine the most frequently accessed RESOURCE.
+    - Calculate the average response time for each unique ACTION.
+    - Identify the USER_ID with the highest number of POST actions.
+    - Determine the most frequently accessed RESOURCE.
 
 ### b. System Metrics Aggregation
 
@@ -27,9 +27,9 @@ TIMESTAMP, CPU_USAGE, MEMORY_USAGE, DISK_IO, NETWORK_IO 2025-02-05 09:00:00, 45,
 
 Task: Develop a script to:
 
-    Compute the average CPU_USAGE, MEMORY_USAGE, DISK_IO, and NETWORK_IO over the entire dataset.
-    Identify the time period (start and end TIMESTAMP) during which CPU_USAGE exceeded 80%.
-    Find the peak MEMORY_USAGE and the corresponding TIMESTAMP.
+    - Compute the average CPU_USAGE, MEMORY_USAGE, DISK_IO, and NETWORK_IO over the entire dataset.
+    - Identify the time period (start and end TIMESTAMP) during which CPU_USAGE exceeded 80%.
+    - Find the peak MEMORY_USAGE and the corresponding TIMESTAMP.
 
 ### c. Log Parsing and Analysis
 
@@ -41,9 +41,9 @@ TIMESTAMP, LOG_LEVEL, MESSAGE 2025-02-05 09:00:00, INFO, Application started
 
 Task: Develop a script to:
 
-    Count the number of occurrences for each LOG_LEVEL.
-    Extract and display all unique error messages along with their first occurrence TIMESTAMP.
-    Identify the time periods with the highest frequency of ERROR logs.
+    - Count the number of occurrences for each LOG_LEVEL.
+    - Extract and display all unique error messages along with their first occurrence TIMESTAMP.
+    - Identify the time periods with the highest frequency of ERROR logs.
 
 ## 2. Two CSV File Questions:
 
@@ -62,9 +62,9 @@ USER_ID, LOGIN_TIMESTAMP, ACTIVITY_TYPE, DURATION_MIN 12345, 2025-02-05
 
 Task: Create a program to:
 
-    Merge the two datasets based on USER_ID.
-    Calculate the total DURATION_MIN spent by each user on different ACTIVITY_TYPE.
-    Identify the top 3 countries with the highest average activity duration.
+    - Merge the two datasets based on USER_ID.
+    - Calculate the total DURATION_MIN spent by each user on different ACTIVITY_TYPE.
+    - Identify the top 3 countries with the highest average activity duration.
 
 ### b. Product Sales Analysis
 
@@ -82,9 +82,9 @@ SALE_ID, PRODUCT_ID, SALE_DATE, QUANTITY 1001, 101, 2025-02-05, 3 1002, 102,
 
 Task: Write a script to:
 
-    Join the two files on PRODUCT_ID.
-    Calculate the total revenue generated for each CATEGORY.
-    Determine the best-selling PRODUCT_NAME based on QUANTITY sold.
+    - Join the two files on PRODUCT_ID.
+    - Calculate the total revenue generated for each CATEGORY.
+    - Determine the best-selling PRODUCT_NAME based on QUANTITY sold.
 
 ### c. Bipedal dinosaurs from fastest to slowest
 
@@ -110,6 +110,20 @@ PARAMETER, VALUE max_connections, 100 timeout, 30 ...
 
 Task: Write a program to:
 
-    Compare the two configuration files and list parameters that have changed values.
-    Identify parameters present in config_new.csv but missing in config_old.csv and vice versa.
-    Generate a summary report of the differences.
+    - Compare the two configuration files and list parameters that have changed values.
+    - Identify parameters present in config_new.csv but missing in config_old.csv and vice versa.
+    - Generate a summary report of the differences.
+
+### e. Employee Productivity Analysis
+
+You are given two CSV files containing information about employees and their work performance. Both files share a common primary key, EMPLOYEE_ID.
+
+The first file (employees.csv) contains basic employee details
+The second file (performance.csv) contains performance metrics for each employee
+
+Tasks:
+    - Merge both files on EMPLOYEE_ID.
+    - Compute a new variable:
+    productivity_score = (PROJECTS_COMPLETED / HOURS_WORKED) * CLIENT_RATINGS * EXPERIENCE_YEARS
+    - Sort employees by productivity_score in descending order.
+    - Print the sorted employee records including NAME, DEPARTMENT, and productivity_score.

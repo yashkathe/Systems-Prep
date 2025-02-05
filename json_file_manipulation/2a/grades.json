@@ -1,0 +1,5 @@
+[
+    {"student_id": 101, "grades": {"Math": 85, "Science": 90, "History": 78}},
+    {"student_id": 102, "grades": {"Math": 92, "Science": 88, "History": 95}},
+    {"student_id": 103, "grades": {"Math": 79, "Science": 85, "History": 80}}
+]

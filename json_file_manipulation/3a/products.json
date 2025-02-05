@@ -1,0 +1,30 @@
+[
+	{
+		"region": "North",
+		"sales": [
+			{ "product": "A", "quantity": 30 },
+			{ "product": "B", "quantity": 20 }
+		]
+	},
+	{
+		"region": "South",
+		"sales": [
+			{ "product": "A", "quantity": 25 },
+			{ "product": "C", "quantity": 15 }
+		]
+	},
+	{
+		"region": "East",
+		"sales": [
+			{ "product": "B", "quantity": 10 },
+			{ "product": "C", "quantity": 5 }
+		]
+	},
+	{
+		"region": "West",
+		"sales": [
+			{ "product": "A", "quantity": 20 },
+			{ "product": "B", "quantity": 25 }
+		]
+	}
+]

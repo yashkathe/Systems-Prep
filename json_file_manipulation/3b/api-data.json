@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "city": "New York",
+            "temp_c": 22,
+            "humidity": 55,
+            "wind_speed_kmh": 10,
+            "conditions": "Cloudy"
+        },
+        {
+            "city": "London",
+            "temp_c": 18,
+            "humidity": 65,
+            "wind_speed_kmh": 12,
+            "conditions": "Rainy"
+        },
+        {
+            "city": "Tokyo",
+            "temp_c": 25,
+            "humidity": 70,
+            "wind_speed_kmh": 8,
+            "conditions": "Sunny"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+Hello, please contact support@example.com for assistance.
+john.doe@gmail.com and jane_doe123@yahoo.com are working on the project.
+For sales inquiries, reach out to sales@business.co.
+support@example.com is our main support email.
+marketing@company.org, sales@business.co, and support@example.com are frequently used.

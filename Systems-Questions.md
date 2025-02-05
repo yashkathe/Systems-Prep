@@ -1390,3 +1390,141 @@ dig www.facebook.com +trace
 
 ✅ Shows root servers **delegating** the request to `.com` TLD, then to
 Facebook’s authoritative DNS.
+
+## Question: Large-Scale Network Health Check
+
+You are given a **massive log file (`hosts_ports.txt`)** containing **hostnames
+(or IPs) and ports** that need to be checked for availability. Your task is to:
+
+1. **Read from STDIN or a file (assume a 1TB+ file for real-world scenario).**
+2. **Efficiently process large inputs** using **streaming (reading line by
+   line)**.
+3. **Attempt to connect** to each `<HOST>:<PORT>` and determine if it's
+   **reachable**.
+4. **Print the status** in the format:
+   ```txt
+   <HOST>:<PORT> - REACHABLE
+   <HOST>:<PORT> - UNREACHABLE
+   ```
+5. **Optimize memory usage** so that even a huge file **doesn’t crash the
+   system**.
+
+---
+
+### **Example Content of `hosts_ports.txt`**
+
+```txt
+192.168.1.1,22
+example.com,443
+10.0.0.1,80
+google.com,8080
+localhost,3306
+```
+
+---
+
+### **Expected Output (Example)**
+
+```txt
+192.168.1.1:22 - REACHABLE
+example.com:443 - REACHABLE
+10.0.0.1:80 - UNREACHABLE
+google.com:8080 - UNREACHABLE
+localhost:3306 - REACHABLE
+```
+
+```python
+import socket
+
+def check_host_port(host, port, timeout=2):
+    """Attempts to connect to the given host and port, returns reachability status."""
+    try:
+        with socket.create_connection((host, int(port)), timeout=timeout):
+            return "REACHABLE"
+    except (socket.timeout, ConnectionRefusedError, OSError):
+        return "UNREACHABLE"
+
+# Process the file line by line (handles large files efficiently)
+with open("hosts_ports.txt", "r") as f:
+    for line in f:
+        line = line.strip()
+        if not line:  # Skip empty lines
+            continue
+
+        try:
+            host, port = line.split(",")
+            status = check_host_port(host, port)
+            print(f"{host}:{port} - {status}")
+        except ValueError:
+            print(f"Invalid entry: {line}")  # Handles malformed lines
+
+```
+
+## Write a script that connects to 100 hosts, looks for a particular process and sends an email with a report.
+
+```python
+import paramiko
+import smtplib
+from email.mime.text import MIMEText
+
+# --------------------- #
+# Configuration Section #
+# --------------------- #
+
+HOSTS = ["192.168.1.1", "192.168.1.2", "server1.example.com"]  # Add 100 hosts
+USERNAME = "your_user"
+PASSWORD = "your_password"  # Use SSH key authentication for security
+PROCESS_NAME = "nginx"
+EMAIL_TO = "admin@example.com"
+EMAIL_FROM = "monitor@example.com"
+SMTP_SERVER = "smtp.example.com"
+
+# --------------------- #
+# Check Process on Hosts #
+# --------------------- #
+
+def check_process(host):
+    """SSH into host and check if the process is running."""
+    try:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(host, username=USERNAME, password=PASSWORD, timeout=5)
+
+        # Run command to check if process is running
+        stdin, stdout, stderr = client.exec_command(f"pgrep -x {PROCESS_NAME}")
+        output = stdout.read().decode().strip()
+
+        client.close()
+        return "RUNNING" if output else "NOT RUNNING"
+
+    except Exception as e:
+        return f"ERROR: {str(e)}"
+
+# --------------------- #
+# Generate Report       #
+# --------------------- #
+
+report = []
+for host in HOSTS:
+    status = check_process(host)
+    report.append(f"{host}: {status}")
+
+# --------------------- #
+# Send Email            #
+# --------------------- #
+
+def send_email(report):
+    """Send an email with the process check report."""
+    msg = MIMEText("\n".join(report))
+    msg["Subject"] = f"Process Check Report: {PROCESS_NAME}"
+    msg["From"] = EMAIL_FROM
+    msg["To"] = EMAIL_TO
+
+    with smtplib.SMTP(SMTP_SERVER) as server:
+        server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
+
+send_email(report)
+
+print("Process check completed. Report sent via email.")
+
+```
