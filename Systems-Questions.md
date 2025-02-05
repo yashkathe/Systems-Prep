@@ -1528,3 +1528,26 @@ send_email(report)
 print("Process check completed. Report sent via email.")
 
 ```
+
+## How Virtual Memory is Managed in Linux (Short, Simple, and Concise)
+
+Virtual Memory in Linux allows processes to use more memory than physically
+available by mapping logical addresses to physical memory using paging. Key
+Components:
+
+    Paging:
+        Divides memory into fixed-size pages (4KB default).
+        Uses a page table to map virtual pages to physical frames.
+
+    Swap Space:
+        When RAM is full, inactive pages move to swap (disk-based memory).
+        Uses Least Recently Used (LRU) algorithm to decide which pages to swap.
+
+    Demand Paging:
+        Pages are loaded into memory only when needed, reducing load time.
+
+    Memory Mapping:
+        Maps files or devices into memory (e.g., shared libraries, mmap system call).
+
+    Transparent Huge Pages (THP):
+        Uses larger page sizes (e.g., 2MB instead of 4KB) to reduce TLB misses, improving performance.
