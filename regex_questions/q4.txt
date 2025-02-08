@@ -1,0 +1,6 @@
+2025-01-14 10:15:30 ERROR Memory bit 1010 stuck at 1
+2025-01-14 10:20:00 INFO System running normally
+2025-01-14 10:25:45 ERROR Memory bit 1100 stuck at 0
+2025-01-14 10:30:30 ERROR Memory bit 1010 stuck at 1
+2025-01-14 10:40:00 INFO System rebooted
+2025-01-14 10:50:15 ERROR Memory bit 1110 stuck at 1

@@ -1,6 +1,6 @@
 # Regex Questions
 
-## Notes
+## Notes - part 1
 
 (?:) - non capturing group
 
@@ -28,6 +28,28 @@ Quantifiers:
 ? - 0 or One  
 {3} - Exact Number  
 {3,4} - Range of Numbers (Minimum, Maximum)
+
+## Notes - part 2
+
+In regex:
+
+- **.\*** (_greedy_) matches as much as possible before allowing the next part
+  of the pattern to continue.
+- **.\*?** (**non-greedy or lazy**) matches as little as possible before
+  allowing the next part of the pattern to continue.
+
+### Example
+
+**Greedy .\***
+
+Pattern: a.\*b String: axxxbxxxbyyyb Match: axxxbxxxbyyyb (takes the longest
+match)
+
+**Non-Greedy .\*?**
+
+Pattern: a.\*?b String: axxxbxxxbyyyb Match: axxxb (takes the shortest match)
+
+So, ._ is greedy, while ._? is non-greedy.
 
 ### Questions
 
@@ -63,3 +85,38 @@ Write a regex pattern to match valid IPv4 addresses from the text. A valid IPv4:
     Consists of four groups of numbers (0-255) separated by dots (.).
     Each group should be between 0 and 255.
     The invalid IP (999.999.999.999) should not match.
+
+### Q3
+
+Parse the file and extract all failed test cases along with their timestamps.
+Save the output in a new file called failed_tests.txt with this format:
+
+    TEST_CASE_2: 2025-01-14 10:20:45
+    TEST_CASE_3: 2025-01-14 10:22:00
+    TEST_CASE_5: 2025-01-14 10:30:00
+
+### Q4
+
+Memory Failure Analysis
+
+Extract failure bits:
+
+    2025-01-14 10:15:30 ERROR Memory bit 1010 stuck at 1
+    2025-01-14 10:20:00 INFO System running normally
+    2025-01-14 10:25:45 ERROR Memory bit 1100 stuck at 0
+    2025-01-14 10:30:30 ERROR Memory bit 1010 stuck at 1
+    2025-01-14 10:40:00 INFO System rebooted
+    2025-01-14 10:50:15 ERROR Memory bit 1110 stuck at 1
+
+### Q5
+
+Parse the log file and categorize the results into PASS and FAIL. Save the
+results into two separate files, pass_logs.txt and fail_logs.txt.
+
+data log:
+
+    TEST_CASE_1,PASS
+    TEST_CASE_2,FAIL
+    TEST_CASE_3,PASS
+    TEST_CASE_4,FAIL
+    TEST_CASE_5,FAIL
